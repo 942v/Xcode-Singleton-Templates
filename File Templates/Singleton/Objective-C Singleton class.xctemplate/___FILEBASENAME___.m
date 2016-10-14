@@ -8,6 +8,10 @@
 
 #import "___FILEBASENAMEASIDENTIFIER___.h"
 
+@interface ___FILEBASENAMEASIDENTIFIER___ : NSObject
+
+@end
+
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
 static ___FILEBASENAMEASIDENTIFIER___ *SINGLETON = NULL;
