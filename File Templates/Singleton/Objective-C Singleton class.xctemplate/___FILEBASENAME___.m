@@ -10,14 +10,13 @@
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
-static ___FILEBASENAMEASIDENTIFIER___ *SINGLETON = nil;
+static ___FILEBASENAMEASIDENTIFIER___ *SINGLETON = NULL;
 
-static bool isFirstAccess = YES;
+static BOOL isFirstAccess = YES;
 
 #pragma mark - Public Method
 
-+ (id)sharedInstance
-{
++ (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         isFirstAccess = NO;
@@ -29,33 +28,27 @@ static bool isFirstAccess = YES;
 
 #pragma mark - Life Cycle
 
-+ (id) allocWithZone:(NSZone *)zone
-{
++ (instancetype) allocWithZone:(NSZone *)zone {
     return [self sharedInstance];
 }
 
-+ (id)copyWithZone:(struct _NSZone *)zone
-{
++ (instancetype)copyWithZone:(struct _NSZone *)zone {
     return [self sharedInstance];
 }
 
-+ (id)mutableCopyWithZone:(struct _NSZone *)zone
-{
++ (instancetype)mutableCopyWithZone:(struct _NSZone *)zone {
     return [self sharedInstance];
 }
 
-- (id)copy
-{
+- (instancetype)copy {
     return [[___FILEBASENAMEASIDENTIFIER___ alloc] init];
 }
 
-- (id)mutableCopy
-{
+- (instancetype)mutableCopy {
     return [[___FILEBASENAMEASIDENTIFIER___ alloc] init];
 }
 
-- (id) init
-{
+- (instancetype) init {
     if(SINGLETON){
         return SINGLETON;
     }
@@ -63,8 +56,12 @@ static bool isFirstAccess = YES;
         [self doesNotRecognizeSelector:_cmd];
     }
     self = [super init];
+    if (self) {
+
+    }
     return self;
 }
+
 
 
 @end
